@@ -1,0 +1,9 @@
+{
+  "fundusgen": {
+    "root": "/root_path",
+    "annotation": "/path/to/jsonl",
+    "data_augment": false,
+    "repeat_time": 1,
+    "length": 297506
+  }
+}
