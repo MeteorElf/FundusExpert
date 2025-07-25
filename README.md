@@ -1,5 +1,7 @@
 # <img src="asset/logo.png" alt="FundusExpert Logo" width="70" /> FundusExpert
-Constructing Ophthalmic MLLM for Positioning-diagnosis Collaboration Through Clinical Cognitive Chain Reasoning.
+This repository is the official implementation of the paper **Constructing Ophthalmic MLLM for Positioning-diagnosis Collaboration Through Clinical Cognitive Chain Reasoning**.
+
+[🤗 Model](https://huggingface.co/MeteorElf/FundusExpert) | [🤗 Dataset](https://huggingface.co/datasets/MeteorElf/Fundus-MMBench) | [📝 Paper](https://huggingface.co/papers/2507.17539) | [📖 arXiv](https://arxiv.org/abs/2507.17539)
 
 ## Introduction
 
@@ -11,13 +13,11 @@ Clone this repository and install the dependencies.
 
 Please refer to [InternVL Installation](https://internvl.readthedocs.io/en/latest/get_started/installation.html) or use the `src/internvl25_requirements.txt` to build the environment.
 
-## Data and Models
+## Model
 
-Our model weights and benchmarks are hosted on HuggingFace and require application to access. This model weights and benchmarks are for academic research only. By applying for access, you agree to these terms.
+Our model weights are hosted on HuggingFace and require application to access. This model weights are for academic research only. By applying for access, you agree to these terms.
 
 **Model**: [MeteorElf/FundusExpert](https://huggingface.co/MeteorElf/FundusExpert)
-
-**Please send an email to `liuxinyao@mail.ustc.edu.cn` and `songdiping@pjlab.org.cn`**. Please include your HuggingFace username and a brief self-introduction in the email. We will authorize you as soon as possible.
 
 ### Quick Start
 
@@ -27,7 +27,20 @@ Inference with single GPU:
 
 ## Evaluation
 
+Our benchmark is hosted on HuggingFace and require application to access. This benchmark is for academic research only. By applying for access, you agree to these terms.
+
+**Fundus-MMBench**: [MeteorElf/Fundus-MMBench](https://huggingface.co/datasets/MeteorElf/Fundus-MMBench)
+
+You can run the evaluation on Fundus-MMBench using [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Note that Fundus-MMBench is not officially supported, but can be regarded as a Custom MCQ dataset.
+
+**GMAI-MMBench(fundus image subset)**: [uni-medical/GMAI-MMBench](https://github.com/uni-medical/GMAI-MMBench)
+
+
+## Contact
+Xinyao Liu: liuxinyao@mail.ustc.edu.cn
+Diping Song: songdiping@pjlab.org.cn
 
 ## Acknowledgements
 
-Our model is based on the [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). We would like to thank its authors for their excellent work and open source contributions.
+Our model is based on [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). Our evaluation code is based on [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Our validation data comes partly from [uni-medical/GMAI-MMBench](https://github.com/uni-medical/GMAI-MMBench). We would like to thank their excellent work and open source contributions.
+
