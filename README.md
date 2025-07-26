@@ -7,6 +7,8 @@ This repository is the official implementation of the paper **Constructing Ophth
 
 This paper introduces FundusExpert, an ophthalmology-specific MLLM with integrated positioning-diagnosis reasoning capabilities, along with FundusGen, a dataset constructed through the intelligent Fundus-Engine system.
 
+## Data Processing
+
 ## Setup
 
 Clone this repository and install the dependencies.
@@ -31,16 +33,19 @@ Our benchmark is hosted on HuggingFace and require application to access. This b
 
 **Fundus-MMBench**: [MeteorElf/Fundus-MMBench](https://huggingface.co/datasets/MeteorElf/Fundus-MMBench)
 
-You can run the evaluation on Fundus-MMBench using [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Note that Fundus-MMBench is not officially supported, but can be regarded as a Custom MCQ dataset.
+You can run the evaluation on Fundus-MMBench using [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Note that Fundus-MMBench(tsv version) is not officially supported, but can be regarded as a Custom MCQ dataset.
+
+For the evaluation of models that require calling APIs, you can use the API method in [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) or use the `src/eval/eval_api` code.
 
 **GMAI-MMBench(fundus image subset)**: [uni-medical/GMAI-MMBench](https://github.com/uni-medical/GMAI-MMBench)
 
 
 ## Contact
 Xinyao Liu: liuxinyao@mail.ustc.edu.cn
+
 Diping Song: songdiping@pjlab.org.cn
 
 ## Acknowledgements
 
-Our model is based on [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). Our evaluation code is based on [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Our validation data comes partly from [uni-medical/GMAI-MMBench](https://github.com/uni-medical/GMAI-MMBench). We would like to thank their excellent work and open source contributions.
+Our model is based on [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). Our evaluation code is based on [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). We would like to thank their excellent work and open source contributions.
 
