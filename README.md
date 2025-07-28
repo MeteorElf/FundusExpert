@@ -5,6 +5,8 @@ This repository is the official implementation of the paper **Constructing Ophth
 
 ## Introduction
 
+<img src="asset/demo.png" alt="FundusExpert demo" width="700" />
+
 This paper introduces FundusExpert, an ophthalmology-specific MLLM with integrated positioning-diagnosis reasoning capabilities, along with FundusGen, a dataset constructed through the intelligent Fundus-Engine system.
 
 ## Data Processing

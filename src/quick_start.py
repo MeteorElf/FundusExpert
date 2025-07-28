@@ -101,8 +101,10 @@ def main(image_path, prompt, model_path):
 if __name__ == "__main__":
     # Example usage:
     main(
-        image_path='/path/to/image',
-        prompt="你的任务是定位眼底彩照中视盘的位置，用边界框的形式表示，[x1, y1, x2, y2]，所有的值都归一化为0到999之间的整数。这些值分别对应左上角的x，左上角的y，右下角的x和右下角的y。注意，用户只需要你给出定位坐标。",
+        image_path='/path/to/fundus_image',
+        # prompt="Describe the fundus image by combining positional information. Please express the organs or lesions in the image in the form of bounding boxes, \"<ref>...</ref><box>[[x1, y1, x2, y2],...]</box>\".",
+        # prompt="你的任务是定位眼底彩照中视盘的位置，用边界框的形式表示，[x1, y1, x2, y2]，所有的值都归一化为0到999之间的整数。这些值分别对应左上角的x，左上角的y，右下角的x和右下角的y。请使用这种格式用边界框表示区域：\"<ref>视盘</ref><box>[[x1, y1, x2, y2],...]</box>\"。注意，用户只需要你给出定位坐标。",
+        prompt="Your task is to locate the hard exudate in the fundus color photograph, and represent it in the form of a bounding box, [x1, y1, x2, y2], where all values are normalized to integers between 0 and 999. These values correspond to the x of the upper left corner, the y of the upper left corner, the x of the lower right corner, and the y of the lower right corner. Please use this format to represent the region with a bounding box: \"<ref>Hard exudate</ref><box>[[x1, y1, x2, y2],...]</box>\". Note that the user only needs you to give the location coordinates.",
         # prompt="Please describe the fundus image in detail and give a preliminary diagnostic conclusion of the fundus image.",
         model_path='/path/to/model'
     )
