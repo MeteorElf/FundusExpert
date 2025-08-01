@@ -23,7 +23,9 @@ Please refer to [InternVL Installation](https://internvl.readthedocs.io/en/lates
 
 Inference with single GPU:
 
-`python src/quick_start.py`
+```
+python src/quick_start.py
+```
 
 ## Evaluation
 
@@ -36,5 +38,5 @@ Diping Song: songdiping@pjlab.org.cn
 
 ## Acknowledgements
 
-Our model is based on [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). Our evaluation code is based on [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). We would like to thank their excellent work and open source contributions.
+Our model is based on [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). Our evaluation code is based on [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Our segmentation model and code come from [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet). We would like to thank their excellent work and open source contributions.
 
