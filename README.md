@@ -11,7 +11,7 @@ This paper introduces FundusExpert, an ophthalmology-specific MLLM with integrat
 
 ## Data Processing
 
-[📌 Data Processing](./data_processing/data_processing.md)
+[📌 Data Processing Doc](./data_processing/data_processing.md)
 
 ## Setup
 
@@ -29,7 +29,7 @@ python src/quick_start.py
 
 ## Evaluation
 
-[📌 Evaluation](./src/eval/eval.md)
+[📌 Evaluation Doc](./src/eval/eval.md)
 
 ## Contact
 Xinyao Liu: liuxinyao@mail.ustc.edu.cn

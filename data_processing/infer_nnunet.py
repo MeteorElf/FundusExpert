@@ -1,3 +1,7 @@
+'''
+Refer to nnunetv2/inference/examples.py(https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunetv2/inference/examples.py) for modification
+'''
+
 if __name__ == '__main__':
     from nnunetv2.paths import nnUNet_results, nnUNet_raw
     import torch
