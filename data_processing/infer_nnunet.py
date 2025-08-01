@@ -1,5 +1,6 @@
 '''
-Refer to nnunetv2/inference/examples.py(https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunetv2/inference/examples.py) for modification
+This code is modified based on nnunetv2/inference/examples.py
+(https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunetv2/inference/examples.py).
 '''
 
 if __name__ == '__main__':
