@@ -4,12 +4,12 @@
 
 Please refer to [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet) to build the segmentation environment and run the code.
 
-You can refer to `infer_nnunet.py` to call the nnU-Net model for inference. The best iteration(test on [Messidor](https://opendatalab.org.cn/OpenDataLab/MESSIDOR)) of the segmentation model in Fundus-Engine is open sourced to [huggingface](https://huggingface.co/MeteorElf/FundusExpert_Seg) for reference.
+You can refer to `infer_seg.py` to call the nnU-Net model for inference. The best iteration(test on [Messidor](https://opendatalab.org.cn/OpenDataLab/MESSIDOR)) of the segmentation model in Fundus-Engine is open sourced to [huggingface](https://huggingface.co/MeteorElf/FundusExpert_Seg) for reference.
 
-You can refer to `eval_nnunet.py` to evaluate. 
+You can refer to `eval_seg.py` to evaluate. 
 Usage:
 ```
-python eval_nnunet.py \
+python eval_seg.py \
     --folder_ref gt/folder \
     --folder_pred predicted/folder \
     --output_dir output/dir
