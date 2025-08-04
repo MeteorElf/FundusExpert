@@ -3,6 +3,8 @@
 ################# Execute them one by one in sequence. #################
 
 ## Calling the API to generate the answer
+## The image path in the benchmark is a local path, not base64 encoded.
+
 # python call_api.py \
 #   --benchmark_tsv /path/to/xxx_local.tsv \
 #   --model_name gpt-4o \

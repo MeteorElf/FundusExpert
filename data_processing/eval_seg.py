@@ -1,7 +1,6 @@
 '''
 This code is modified based on nnunetv2/evaluation/evaluate_predictions.py 
-(https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunetv2/evaluate_predictions.py), 
- and the core functionality is basically the same.
+(https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunetv2/evaluate_predictions.py).
 '''
 
 import multiprocessing
@@ -188,82 +187,6 @@ def compute_metrics_on_folder(folder_ref: str, folder_pred: str, output_file: st
         save_summary_json(result, output_file)
     return result
 
-
-def compute_metrics_on_folder2(folder_ref: str, folder_pred: str, dataset_json_file: str, plans_file: str,
-                               output_file: str = None,
-                               num_processes: int = default_num_processes,
-                               chill: bool = False):
-    dataset_json = load_json(dataset_json_file)
-    # get file ending
-    file_ending = dataset_json['file_ending']
-
-    # get reader writer class
-    example_file = subfiles(folder_ref, suffix=file_ending, join=True)[0]
-    rw = determine_reader_writer_from_dataset_json(dataset_json, example_file)()
-
-    # maybe auto set output file
-    if output_file is None:
-        output_file = join(folder_pred, 'summary.json')
-
-    lm = PlansManager(plans_file).get_label_manager(dataset_json)
-    compute_metrics_on_folder(folder_ref, folder_pred, output_file, rw, file_ending,
-                              lm.foreground_regions if lm.has_regions else lm.foreground_labels, lm.ignore_label,
-                              num_processes, chill=chill)
-
-
-def compute_metrics_on_folder_simple(folder_ref: str, folder_pred: str, labels: Union[Tuple[int, ...], List[int]],
-                                     output_file: str = None,
-                                     num_processes: int = default_num_processes,
-                                     ignore_label: int = None,
-                                     chill: bool = False):
-    example_file = subfiles(folder_ref, join=True)[0]
-    file_ending = os.path.splitext(example_file)[-1]
-    rw = determine_reader_writer_from_file_ending(file_ending, example_file, allow_nonmatching_filename=True,
-                                                  verbose=False)()
-    # maybe auto set output file
-    if output_file is None:
-        output_file = join(folder_pred, 'summary.json')
-    compute_metrics_on_folder(folder_ref, folder_pred, output_file, rw, file_ending,
-                              labels, ignore_label=ignore_label, num_processes=num_processes, chill=chill)
-
-
-def evaluate_folder_entry_point():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('gt_folder', type=str, help='folder with gt segmentations')
-    parser.add_argument('pred_folder', type=str, help='folder with predicted segmentations')
-    parser.add_argument('-djfile', type=str, required=True,
-                        help='dataset.json file')
-    parser.add_argument('-pfile', type=str, required=True,
-                        help='plans.json file')
-    parser.add_argument('-o', type=str, required=False, default=None,
-                        help='Output file. Optional. Default: pred_folder/summary.json')
-    parser.add_argument('-np', type=int, required=False, default=default_num_processes,
-                        help=f'number of processes used. Optional. Default: {default_num_processes}')
-    parser.add_argument('--chill', action='store_true', help='dont crash if folder_pred does not have all files that are present in folder_gt')
-    args = parser.parse_args()
-    compute_metrics_on_folder2(args.gt_folder, args.pred_folder, args.djfile, args.pfile, args.o, args.np, chill=args.chill)
-
-
-def evaluate_simple_entry_point():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('gt_folder', type=str, help='folder with gt segmentations')
-    parser.add_argument('pred_folder', type=str, help='folder with predicted segmentations')
-    parser.add_argument('-l', type=int, nargs='+', required=True,
-                        help='list of labels')
-    parser.add_argument('-il', type=int, required=False, default=None,
-                        help='ignore label')
-    parser.add_argument('-o', type=str, required=False, default=None,
-                        help='Output file. Optional. Default: pred_folder/summary.json')
-    parser.add_argument('-np', type=int, required=False, default=default_num_processes,
-                        help=f'number of processes used. Optional. Default: {default_num_processes}')
-    parser.add_argument('--chill', action='store_true', help='dont crash if folder_pred does not have all files that are present in folder_gt')
-
-    args = parser.parse_args()
-    compute_metrics_on_folder_simple(args.gt_folder, args.pred_folder, args.l, args.o, args.np, args.il, chill=args.chill)
-
-
 import argparse
 def find_next_summary_file(output_dir):
     """
@@ -278,9 +201,9 @@ def find_next_summary_file(output_dir):
 
 def main():
     parser = argparse.ArgumentParser(description='Compute metrics on folders.')
-    parser.add_argument('folder_ref', type=str, help='folder with gt segmentations')
-    parser.add_argument('folder_pred', type=str, help='folder with predicted segmentations')
-    parser.add_argument('output_dir', type=str, help='directory to save the output JSON summary file')
+    parser.add_argument('--folder_ref', type=str, required=True, help='folder with gt segmentations')
+    parser.add_argument('--folder_pred', type=str, required=True, help='folder with predicted segmentations')
+    parser.add_argument('--output_dir', type=str, required=True, help='directory to save the output JSON summary file')
     parser.add_argument('-np', type=int, required=False, default=12,
                         help='number of processes used. Optional. Default: 12')
     parser.add_argument('--chill', action='store_true', help='dont crash if folder_pred does not have all files that are present in folder_gt')
