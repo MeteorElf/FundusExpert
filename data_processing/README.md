@@ -19,6 +19,7 @@ python eval_seg.py \
 
 `pixel2bbox.py` processes binary segmentation masks to generate bounding boxes for objects of interest.
 
+
 Usage:
 ```
 python pixel2bbox.py \

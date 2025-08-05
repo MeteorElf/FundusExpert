@@ -17,7 +17,6 @@ from nnunetv2.imageio.base_reader_writer import BaseReaderWriter
 from nnunetv2.imageio.reader_writer_registry import determine_reader_writer_from_dataset_json, \
     determine_reader_writer_from_file_ending
 from nnunetv2.imageio.simpleitk_reader_writer import SimpleITKIO
-# the Evaluator class of the previous nnU-Net was great and all but man was it overengineered. Keep it simple
 from nnunetv2.utilities.json_export import recursive_fix_for_json_export
 from nnunetv2.utilities.plans_handling.plans_handler import PlansManager
 
@@ -38,8 +37,7 @@ def key_to_label_or_region(key: str):
 
 def save_summary_json(results: dict, output_file: str):
     """
-    json does not support tuples as keys (why does it have to be so shitty) so we need to convert that shit
-    ourselves
+    json does not support tuples as keys so we need to convert them
     """
     results_converted = deepcopy(results)
     # convert keys in mean metrics

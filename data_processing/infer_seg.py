@@ -27,7 +27,7 @@ if __name__ == '__main__':
         use_folds=(0,),  # fold_0
         checkpoint_name='checkpoint_final.pth',
     )
-    # variant 1: give input and output folders
+    # variant: give input and output folders
     predictor.predict_from_files('input/folder',
                                  'output/folder',
                                  save_probabilities=True, overwrite=False,
