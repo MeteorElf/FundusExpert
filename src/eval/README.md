@@ -12,7 +12,7 @@ You can run the evaluation on Fundus-MMBench using [open-compass/VLMEvalKit](htt
 GMAI-MMBench can be evaluated directly using VLMEvalKit, but manual screening of the fundus image subset may be required.
 
 ### API Model
-For the evaluation of models that require calling APIs, you can use the API method in [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) or use the `src/eval/eval_api` code.
+For the evaluation of models that require calling APIs, you can use the API method in [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) or use `run.sh` in `src/eval/eval_api`.
 
 ## Open-domain Tasks
 
