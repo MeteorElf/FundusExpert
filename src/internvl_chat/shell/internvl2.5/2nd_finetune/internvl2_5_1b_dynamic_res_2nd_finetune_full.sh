@@ -2,7 +2,7 @@ set -x
 
 GPUS=${GPUS:-4}
 BATCH_SIZE=${BATCH_SIZE:-128}
-PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-4}
+PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-16}
 GRADIENT_ACC=$((BATCH_SIZE / PER_DEVICE_BATCH_SIZE / GPUS))
 
 
@@ -18,8 +18,8 @@ if [ ! -d "$OUTPUT_DIR" ]; then
 fi
 
 # number of gpus: 4
-# batch size per gpu: 4
-# gradient accumulation steps: 8
+# batch size per gpu: 16
+# gradient accumulation steps: 2
 # total batch size: 128
 # epoch: 1
 torchrun \
@@ -52,7 +52,7 @@ torchrun \
   --save_strategy "steps" \
   --save_steps 200 \
   --save_total_limit 1 \
-  --learning_rate 4e-5 \
+  --learning_rate 5e-5 \
   --weight_decay 0.01 \
   --warmup_ratio 0.03 \
   --lr_scheduler_type "cosine" \
@@ -64,6 +64,6 @@ torchrun \
   --dynamic_image_size True \
   --use_thumbnail True \
   --ps_version 'v2' \
-  --deepspeed "zero_stage1_config.json" \
+  --deepspeed "zero_stage3_config.json" \
   --report_to "tensorboard" \
   2>&1 | tee -a "${OUTPUT_DIR}/training_log.txt"
