@@ -33,12 +33,17 @@ python src/quick_start.py
 
 [📌 Evaluation Doc](./src/eval/README.md)
 
-## Contact
-Xinyao Liu: liuxinyao@mail.ustc.edu.cn
-
-Diping Song: songdiping@pjlab.org.cn
-
 ## Acknowledgements
 
 Our model is based on [OpenGVLab/InternVL](https://github.com/OpenGVLab/InternVL). Our evaluation code is based on [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Our segmentation model and code come from [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet). We would like to thank their excellent work and open source contributions.
 
+## Citation
+```bibtex
+@inproceedings{liu2025constructing,
+  title={Constructing Ophthalmic MLLM for Positioning-diagnosis Collaboration Through Clinical Cognitive Chain Reasoning},
+  author={Liu, Xinyao and Song, Diping},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={21547--21556},
+  year={2025}
+}
+```
